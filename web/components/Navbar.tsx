@@ -34,7 +34,7 @@ const NavMenu = ({isOpen, onClick, children}: NavMenuProps) => (
       <Button link href={Path.sellers}>
         Sell your boat
       </Button>
-      <Button primary link href={Path.inventory}>
+      <Button primary link href={Path.sailboats}>
         Find your new boat
       </Button>
     </div>
@@ -69,7 +69,7 @@ export default function Navbar() {
   const [navOpen, setNavOpen] = React.useState(false);
 
   return (
-    <header className="fixed top-0 w-screen h-14 lg:h-16 px-2 sm:px-4 flex items-center bg-gray-50 shadow-md text-gray-900">
+    <header className="fixed top-0 w-screen h-14 lg:h-16 px-2 sm:px-4 flex items-center bg-gray-50 shadow-md text-gray-900 z-50">
       <a href="/" className="md:-ml-2.5 mr-2 py-2.5 w-11 h-11 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="m-auto w-6 h-6 fill-current stroke-current text-yellow-500">
           <path d="M3 18h18a.5.5 0 0 1 .4.8l-2.1 2.8a1 1 0 0 1-.8.4h-13a1 1 0 0 1-.8-.4l-2.1-2.8A.5.5 0 0 1 3 18zM15 2.425V15a1 1 0 0 1-1 1H4.04a.5.5 0 0 1-.39-.812L14.11 2.113a.5.5 0 0 1 .89.312z"/>
@@ -82,7 +82,7 @@ export default function Navbar() {
 
       <NavMenu isOpen={navOpen} onClick={() => setNavOpen(!navOpen)}>
         <NavItem active={router.pathname === Path.home} href={Path.home}>Home</NavItem>
-        <NavItem active={router.pathname === Path.inventory} href={Path.inventory}>Sailboats</NavItem>
+        <NavItem active={router.pathname === Path.sailboats} href={Path.sailboats}>Sailboats</NavItem>
         <NavItem active={router.pathname === Path.about} href={Path.about}>About</NavItem>
         <NavItem active={router.pathname === Path.news} href={Path.news}>News</NavItem>
       </NavMenu>

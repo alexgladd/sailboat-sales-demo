@@ -18,9 +18,9 @@ export default function Layout({ pageTitle, children }: LayoutProps) {
         <title>{pageTitle ? `${SITE_TITLE} - ${pageTitle}` : SITE_TITLE}</title>
       </Head>
       <Navbar />
-      <main className="mt-14 lg:mt-16 px-2 sm:px-4">
+      <div id="main-container" className="my-14 lg:my-16 px-2 sm:px-4">
         {children}
-      </main>
+      </div>
     </>
   );
 }

@@ -1,7 +1,7 @@
 export enum Path {
   home = '/',
   news = '/news',
-  inventory = '/inventory',
+  sailboats = '/sailboats',
   sellers = '/sellers',
   about = '/about',
 }

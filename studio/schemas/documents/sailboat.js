@@ -2,6 +2,25 @@ export default {
   title: 'Sailboat',
   name: 'sailboat',
   type: 'document',
+  fieldsets: [
+    {
+      title: 'Display Options',
+      name: 'displayOptions',
+      options: {
+        collapsible: true,
+        collapsed: true,
+        columns: 2,
+      },
+    },
+    {
+      title: 'Required Info',
+      name: 'basicData',
+      options: {
+        collapsible: false,
+        columns: 2,
+      },
+    }
+  ],
   fields: [
     {
       title: 'Name',
@@ -16,6 +35,7 @@ export default {
       type: 'string',
       description: 'Manufacturer of the boat',
       validation: Rule => Rule.required().error('Make is required!'),
+      fieldset: 'basicData',
     },
     {
       title: 'Model',
@@ -23,6 +43,7 @@ export default {
       type: 'string',
       description: "Manufacturer's model name for the boat",
       validation: Rule => Rule.required().error('Model is required!'),
+      fieldset: 'basicData',
     },
     {
       title: 'Year',
@@ -30,6 +51,7 @@ export default {
       type: 'number',
       description: 'When the boat was manufactured',
       validation: Rule => Rule.required().min(1900).max(2021).error('Year must be between 1900 and 2021'),
+      fieldset: 'basicData',
     },
     {
       title: 'Asking Price',
@@ -37,7 +59,18 @@ export default {
       type: 'number',
       description: 'Shown to prospective buyers, in dollars',
       validation: Rule => Rule.required().min(0).integer().error('Asking price must be an integer greater than zero'),
-
+      fieldset: 'basicData',
+    },
+    {
+      title: 'Featured',
+      name: 'featured',
+      type: 'boolean',
+      description: '1-3 featured boats will be displayed prominently',
+      initialValue: false,
+      fieldset: 'displayOptions',
+      options: {
+        layout: 'checkbox',
+      }
     },
     {
       title: 'Sold!',
@@ -45,6 +78,7 @@ export default {
       type: 'boolean',
       description: 'Check to remove from public display',
       initialValue: false,
+      fieldset: 'displayOptions',
       options: {
         layout: 'checkbox',
       },
@@ -63,7 +97,7 @@ export default {
       title: 'Description',
       name: 'description',
       type: 'simpleBlockContent',
-      description: 'Describe why buyers would love this boat',
+      description: 'Why buyers would love this boat?',
       validation: Rule => Rule.required().error('Description is required!'),
     },
     {

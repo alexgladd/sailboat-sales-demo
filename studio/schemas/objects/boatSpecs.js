@@ -13,7 +13,7 @@ export default {
       name: 'loa',
       type: 'number',
       description: 'In feet',
-      validation: Rule => Rule.min(0),
+      validation: Rule => Rule.required().min(0),
     },
     {
       title: 'LWL',
