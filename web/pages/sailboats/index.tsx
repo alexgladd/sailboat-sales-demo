@@ -22,7 +22,14 @@ export default function Inventory({ boats }: InventoryProps) {
     <Layout pageTitle="Sailboats for Sale">
       <main className="space-y-8">
         <div>
-          Featured
+          <h1 className="text-2xl">Featured Sailboats</h1>
+        </div>
+
+        <div className="flex justify-between items-end">
+          <h1 className="text-2xl">Sailboats for sale</h1>
+          <div>
+            Order by:
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
