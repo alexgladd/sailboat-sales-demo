@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { Path } from '../lib/constants';
 import Button from './Button';
+import { Close, Menu, Sailboat } from './Icons';
 
 type NavItemProps = {
   href: string;
@@ -53,13 +54,9 @@ type MenuBtnProps = {
 const MenuBtn = ({menuOpen, onClick}: MenuBtnProps) => (
   <button type="button" onClick={onClick} className="p-[0.375rem] rounded focus:outline-none focus:ring-2 focus:ring-yellow-500 lg:hidden">
     {menuOpen ? 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8 fill-current stroke-current text-yellow-700">
-      <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/>
-    </svg>
+    <Close sizeStyles="w-8 h-8" extraStyles="text-yellow-700" />
     :
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8 fill-current stroke-current text-yellow-700">
-      <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/>
-    </svg>
+    <Menu sizeStyles="w-8 h-8" extraStyles="text-yellow-700" />
     }
   </button>
 )
@@ -71,9 +68,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 w-screen h-14 lg:h-16 px-2 sm:px-4 flex items-center bg-gray-50 shadow-md text-gray-900 z-50">
       <a href="/" className="md:-ml-2.5 mr-2 py-2.5 w-11 h-11 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="m-auto w-6 h-6 fill-current stroke-current text-yellow-500">
-          <path d="M3 18h18a.5.5 0 0 1 .4.8l-2.1 2.8a1 1 0 0 1-.8.4h-13a1 1 0 0 1-.8-.4l-2.1-2.8A.5.5 0 0 1 3 18zM15 2.425V15a1 1 0 0 1-1 1H4.04a.5.5 0 0 1-.39-.812L14.11 2.113a.5.5 0 0 1 .89.312z"/>
-        </svg>
+        <Sailboat extraStyles="m-auto text-yellow-500" />
       </a>
 
       <h1 className="text-lg font-bold tracking-wider flex-auto lg:flex-none">Sailboat Sales Demo</h1>
