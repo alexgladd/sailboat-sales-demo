@@ -7,6 +7,7 @@ export enum Path {
 }
 
 export enum BoatOrder {
+  newest = 'newest',
   loaAsc = 'loa-asc',
   loaDesc = 'loa-desc',
   priceAsc = 'price-asc',

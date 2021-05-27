@@ -4,25 +4,29 @@ import { SanityDocument } from '@sanity/client'
 import orderBy from 'lodash/orderBy'
 import Layout from '../../components/Layout'
 import { sanityClient } from '../../lib/sanity.server'
-import { allSailboatsForSale } from '../../lib/queries'
+import { allSailboatsForSale, featuredSailboatsForSale } from '../../lib/queries'
 import SailboatCard from '../../components/SailboatCard'
 import { SanityImageObject } from '@sanity/image-url/lib/types/types'
 import Select from '../../components/Select'
 import type { SelectOptions } from '../../components/Select'
 import { BoatOrder } from '../../lib/constants'
 
+type SailboatDocument = SanityDocument & {
+  name: string;
+  make: string;
+  model: string;
+  year: number;
+  askingPrice: number;
+  photos: SanityImageObject[];
+}
+
 type InventoryProps = {
-  boats: (SanityDocument & {
-    name: string;
-    make: string;
-    model: string;
-    year: number;
-    askingPrice: number;
-    photos: SanityImageObject[];
-  })[];
+  featured: SailboatDocument[];
+  boats: SailboatDocument[];
 }
 
 const sortOptions: SelectOptions = [
+  {key: BoatOrder.newest, label: 'Newest'},
   {key: BoatOrder.loaAsc, label: 'LOA ↑'},
   {key: BoatOrder.loaDesc, label: 'LOA ↓'},
   {key: BoatOrder.priceAsc, label: 'Price ↑'},
@@ -31,13 +35,18 @@ const sortOptions: SelectOptions = [
   {key: BoatOrder.yearDesc, label: 'Year ↓'},
 ];
 
-export default function Inventory({ boats }: InventoryProps) {
+export default function Inventory({ featured, boats }: InventoryProps) {
   const [sort, setSort] = React.useState(sortOptions[0]);
 
-  const sortParams = ['_createdAd'];
+  const sortParams = ['name'];
   const sortOrders: ('asc' | 'desc')[] = ['asc'];
 
   switch (sort.key) {
+    case BoatOrder.newest:
+      sortParams.unshift('_createdAt');
+      sortOrders.unshift('desc');
+      break;
+
     case BoatOrder.loaAsc:
       sortParams.unshift('specs.loa');
       sortOrders.unshift('asc');
@@ -75,12 +84,12 @@ export default function Inventory({ boats }: InventoryProps) {
     <Layout pageTitle="Sailboats for Sale">
       <main className="space-y-8">
         <div>
-          <h1 className="text-2xl">Featured Sailboats</h1>
+          <h1 className="text-2xl text-yellow-900 tracking-wide">Featured Sailboats</h1>
         </div>
 
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end">
-          <h1 className="text-2xl">Sailboats for sale</h1>
-          <div className="relative w-44 self-center sm:self-auto mt-8 sm:mt-0">
+        <div className="flex flex-col items-center sm:flex-row sm:justify-between sm:items-center">
+          <h1 className="text-3xl text-yellow-900 tracking-wide font-medium">Sailboats for sale</h1>
+          <div className="relative w-44 mt-6 sm:mt-0">
             <Select label="Order by" value={sort} options={sortOptions} onChange={setSort} />
           </div>
         </div>
@@ -104,13 +113,13 @@ export default function Inventory({ boats }: InventoryProps) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const boats = await sanityClient.fetch<SanityDocument[]>(allSailboatsForSale);
-
-  // console.log('INVENTORY static props', boats);
+  const featuredBoats = await sanityClient.fetch<SailboatDocument[]>(featuredSailboatsForSale);
+  const allBoats = await sanityClient.fetch<SailboatDocument[]>(allSailboatsForSale);
 
   return {
     props: {
-      boats,
+      featured: featuredBoats,
+      boats: allBoats,
     }
   };
 }
