@@ -22,7 +22,7 @@ function FeaturedSlide({ boat, offLeft, offRight }: FeaturedSlideProps) {
           </div>
           <div>
             <Link href={`${Path.sailboats}/${boat._id}`}>
-              <a className="block text-4xl rounded text-yellow-900 font-medium italic focus:outline-none focus:ring-2 focus:ring-yellow-600">
+              <a className="block text-4xl rounded text-yellow-900 font-medium italic tracking-wide focus:outline-none focus:ring-2 focus:ring-yellow-600">
                 {boat.name}
               </a>
             </Link>

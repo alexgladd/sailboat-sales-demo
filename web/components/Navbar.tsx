@@ -71,7 +71,7 @@ export default function Navbar() {
         <Sailboat extraStyles="m-auto text-yellow-500" />
       </a>
 
-      <h1 className="text-lg font-bold tracking-wider flex-auto lg:flex-none">Sailboat Sales Demo</h1>
+      <h1 className="text-lg sm:text-xl xl:text-2xl font-bold tracking-wider text-yellow-900 flex-auto lg:flex-none">Sailboat Sales Demo</h1>
 
       <MenuBtn menuOpen={navOpen} onClick={() => setNavOpen(!navOpen)} />
 
