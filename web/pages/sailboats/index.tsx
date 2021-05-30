@@ -1,24 +1,15 @@
 import React from 'react'
 import { GetStaticProps } from 'next'
-import { SanityDocument } from '@sanity/client'
 import orderBy from 'lodash/orderBy'
 import Layout from '../../components/Layout'
 import { sanityClient } from '../../lib/sanity.server'
 import { allSailboatsForSale, featuredSailboatsForSale } from '../../lib/queries'
 import SailboatCard from '../../components/SailboatCard'
-import { SanityImageObject } from '@sanity/image-url/lib/types/types'
 import Select from '../../components/Select'
 import type { SelectOptions } from '../../components/Select'
 import { BoatOrder } from '../../lib/constants'
-
-type SailboatDocument = SanityDocument & {
-  name: string;
-  make: string;
-  model: string;
-  year: number;
-  askingPrice: number;
-  photos: SanityImageObject[];
-}
+import type { SailboatDocument } from '../../lib/types';
+import FeaturedBoats from '../../components/FeaturedBoats'
 
 type InventoryProps = {
   featured: SailboatDocument[];
@@ -83,18 +74,16 @@ export default function Inventory({ featured, boats }: InventoryProps) {
   return (
     <Layout pageTitle="Sailboats for Sale">
       <main className="space-y-8">
-        <div>
-          <h1 className="text-2xl text-yellow-900 tracking-wide">Featured Sailboats</h1>
-        </div>
+        <FeaturedBoats boats={featured} />
 
         <div className="flex flex-col items-center sm:flex-row sm:justify-between sm:items-center">
           <h1 className="text-3xl text-yellow-900 tracking-wide font-medium">Sailboats for sale</h1>
-          <div className="relative w-44 mt-6 sm:mt-0">
+          <div className="relative w-48 mt-6 sm:mt-0">
             <Select label="Order by" value={sort} options={sortOptions} onChange={setSort} />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         { sortedBoats.map(boat => (
           <SailboatCard
             key={boat._id}
@@ -106,7 +95,7 @@ export default function Inventory({ featured, boats }: InventoryProps) {
             askingPrice={boat.askingPrice}
             photo={boat.photos[0]} />
         ))}
-        </div>
+        </section>
       </main>
     </Layout>
   )

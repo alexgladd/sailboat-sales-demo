@@ -19,7 +19,7 @@ export default function SailboatCard(props: SailboatCardProps) {
     <Link href={`${Path.sailboats}/${props.id}`}><a>
       <div className="rounded-xl shadow-md overflow-hidden bg-gray-50 transform transition-button hover:scale-105 hover:shadow-lg">
         <div className="relative h-60">
-        <SanityImage src={props.photo} layout="fill" objectFit="cover" />
+          <SanityImage src={props.photo} layout="fill" objectFit="cover" />
         </div>
         <div className="p-4 space-y-2">
           <h1 className="text-lg font-bold tracking-wide">{props.name}</h1>

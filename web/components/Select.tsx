@@ -19,7 +19,7 @@ type SelectProps = {
 export default function Select({ label, value, options, onChange }: SelectProps) {
   return (
     <Listbox value={value} onChange={onChange}>
-      <Listbox.Button className="w-full py-2 px-1 flex justify-between items-center bg-yellow-50 rounded border-2 border-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-600">
+      <Listbox.Button className="w-full py-2 pl-2 pr-1 flex justify-between items-center bg-yellow-50 rounded border-2 border-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-600">
         {({open}) => (
           <>
             <span className="text-yellow-900">{`${label ? `${label}: ` : ''}${value.label}`}</span>

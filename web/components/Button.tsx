@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 type ButtonProps = {
   primary?: boolean;
@@ -14,9 +15,11 @@ export default function Button({primary = false, link = false, className = '', h
   
   if (link) {
     return (
-      <a href={href} className={`${defaultClasses} ${className}`}>
-        {children}
-      </a>
+      <Link href={href}>
+        <a className={`${defaultClasses} ${className}`}>
+          {children}
+        </a>
+      </Link>
     );
   } else {
     return (

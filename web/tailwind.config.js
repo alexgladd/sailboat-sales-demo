@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       transitionProperty: {
         'navmenu': 'opacity, transform',
+        'featured': 'opacity, transform',
         'button': 'box-shadow, transform'
       },
     },
