@@ -26,7 +26,7 @@ function FeaturedSlide({ boat, offLeft, offRight }: FeaturedSlideProps) {
                 {boat.name}
               </a>
             </Link>
-            <div className="text-yellow-800 text-lg xl:text-xl font-medium">{boat.year} {boat.make} {boat.model}</div>
+            <div className="text-yellow-800 text-lg xl:text-xl xl:mt-1 font-medium">{boat.year} {boat.make} {boat.model}</div>
           </div>
         </div>
       </div>
