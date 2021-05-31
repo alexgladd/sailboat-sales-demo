@@ -4,10 +4,11 @@ import { urlFor } from '../lib/sanity'
 import { SanityImageHotspot, SanityImageCrop, SanityImageObject } from '@sanity/image-url/lib/types/types';
 
 const sanityLoader: ImageLoader = ({src, width, quality}) => {
-  const sanityUrl = urlFor(src).auto('format').fit('max');
+  const sanitySrc = JSON.parse(src);
+  let sanityUrl = urlFor(sanitySrc).auto('format').fit('max');
 
-  if (width) sanityUrl.width(width);
-  if (quality) sanityUrl.quality(quality);
+  if (width) sanityUrl = sanityUrl.width(width);
+  if (quality) sanityUrl = sanityUrl.quality(quality);
 
   return sanityUrl.url() || '';
 }
@@ -19,6 +20,7 @@ type SanityImageProps = {
   loading?: ImageProps['loading'];
   objectFit?: ImageProps['objectFit'];
   objectPosition?: ImageProps['objectPosition'];
+  sizes?: ImageProps['sizes'];
 } & (
   | {
     layout: 'fill';
@@ -35,7 +37,7 @@ type SanityImageProps = {
 const SanityImage: React.FC<SanityImageProps> = ({ src, ...props }) => (
   <Image
     {...props}
-    src={src.asset._ref || ''}
+    src={JSON.stringify(src) || ''}
     loader={sanityLoader}
   />
 )

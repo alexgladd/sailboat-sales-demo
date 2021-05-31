@@ -14,7 +14,7 @@ type FeaturedSlideProps = {
 function FeaturedSlide({ boat, offLeft, offRight }: FeaturedSlideProps) {
   return (
     <div className={`absolute inset-0 transform transition-featured duration-[250ms] ${!offLeft && !offRight && 'opacity-100 translate-x-0'} ${offLeft && 'translate-x-[-100vw] opacity-0'} ${offRight && 'translate-x-[100vw] opacity-0'}`}>
-      <SanityImage src={boat.photos[0]} loading="eager" layout="fill" objectFit="cover" />
+      <SanityImage src={boat.photos[0]} priority layout="fill" objectFit="cover" />
       <div className="absolute m-2 sm:m-4">
         <div className="p-2 flex rounded bg-yellow-50 bg-opacity-75 shadow-lg">
           <div className="text-yellow-600 py-1 mr-2">
