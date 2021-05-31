@@ -22,12 +22,12 @@ export default function SailboatCard(props: SailboatCardProps) {
           <SanityImage src={props.photo} layout="fill" objectFit="cover" />
         </div>
         <div className="p-4 space-y-2">
-          <h1 className="text-lg font-bold tracking-wide">{props.name}</h1>
+          <h1 className="text-lg xl:text-2xl font-bold tracking-wide text-yellow-900">{props.name}</h1>
           <div className="flex justify-between items-baseline">
-            <div className="text-gray-500">
+            <div className="text-gray-500 font-medium xl:text-lg">
               {`${props.year} ${props.make} ${props.model}`}
             </div>
-            <div className="py-2 px-4 font-bold text-white bg-yellow-600 rounded-xl">
+            <div className="py-2 px-4 font-bold text-white xl:text-lg bg-yellow-600 rounded-xl">
               {`$${props.askingPrice.toLocaleString('en-US')}`}
             </div>
           </div>

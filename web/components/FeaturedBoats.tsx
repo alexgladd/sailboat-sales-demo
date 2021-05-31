@@ -22,19 +22,19 @@ function FeaturedSlide({ boat, offLeft, offRight }: FeaturedSlideProps) {
           </div>
           <div>
             <Link href={`${Path.sailboats}/${boat._id}`}>
-              <a className="block text-4xl rounded text-yellow-900 font-medium italic tracking-wide focus:outline-none focus:ring-2 focus:ring-yellow-600">
+              <a className="block text-4xl xl:text-5xl rounded text-yellow-900 font-medium italic tracking-wide focus:outline-none focus:ring-2 focus:ring-yellow-600">
                 {boat.name}
               </a>
             </Link>
-            <div className="text-yellow-800 font-medium">{boat.year} {boat.make} {boat.model}</div>
+            <div className="text-yellow-800 text-lg xl:text-xl font-medium">{boat.year} {boat.make} {boat.model}</div>
           </div>
         </div>
       </div>
       <div className="absolute right-0 bottom-0 m-2 sm:m-4">
         <Link href={`${Path.sailboats}/${boat._id}`}>
-          <a className="flex py-2 px-4 rounded text-white text-xl font-medium bg-yellow-500 shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-600 transition-colors hover:bg-yellow-600">
+          <a className="flex py-2 px-4 rounded text-white text-xl xl:text-2xl font-medium bg-yellow-500 shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-600 transition-colors hover:bg-yellow-600">
             <span className="block mr-2">${boat.askingPrice.toLocaleString('en-US')}</span>
-            <ArrowCircleRight sizeStyles="w-7 h-7" />
+            <ArrowCircleRight sizeStyles="w-7 h-7 xl:w-8 xl:h-8" />
           </a>
         </Link>
       </div>
