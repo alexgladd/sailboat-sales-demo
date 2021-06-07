@@ -61,7 +61,7 @@ export default function FeaturedBoats({ boats }: FeaturedBoatsProps) {
 
   return (
     <section id="featured" className="-mx-2 sm:-mx-4">
-      <div className="relative h-72 sm:h-96 xl:h-[30rem] overflow-hidden">
+      <div className="relative h-72 sm:h-96 xl:h-[30rem] overflow-hidden bg-gray-50">
         {boats.map((boat, i) => <FeaturedSlide key={boat._id} boat={boat} offLeft={idx > i} offRight={idx < i} />)}
         <div id="featured-controls" className="absolute inset-0 m-2 sm:m-4 flex justify-between items-center pointer-events-none">
           <ControlButton disabled={idx === 0} onClick={() => setIdx(idx - 1)}>
