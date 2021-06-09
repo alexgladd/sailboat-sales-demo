@@ -13,7 +13,7 @@ type NavItemProps = {
 const NavItem = ({href, active = false, children}: NavItemProps) => (
   <li className="flex tracking-wide">
     <a
-      href={active ? undefined : href}
+      href={href}
       className={`p-3 lg:pb-0 lg:pt-2 flex-auto lg:flex lg:flex-col lg:justify-center lg:border-b-8 transition-colors duration-250 focus:outline-none ${active ? 'bg-yellow-200 lg:bg-transparent lg:border-yellow-500' : 'text-gray-500 hover:text-gray-900 focus:text-gray-900 hover:bg-yellow-100 focus:bg-yellow-100 lg:hover:bg-transparent lg:focus:bg-transparent lg:border-transparent lg:hover:border-yellow-300 lg:focus:border-yellow-300'}`}>
       {children}
     </a>
@@ -77,9 +77,9 @@ export default function Navbar() {
 
       <NavMenu isOpen={navOpen} onClick={() => setNavOpen(!navOpen)}>
         <NavItem active={router.pathname === Path.home} href={Path.home}>Home</NavItem>
-        <NavItem active={router.pathname === Path.sailboats} href={Path.sailboats}>Sailboats</NavItem>
-        <NavItem active={router.pathname === Path.about} href={Path.about}>About</NavItem>
-        <NavItem active={router.pathname === Path.news} href={Path.news}>News</NavItem>
+        <NavItem active={router.pathname.startsWith(Path.sailboats)} href={Path.sailboats}>Sailboats</NavItem>
+        <NavItem active={router.pathname.startsWith(Path.about)} href={Path.about}>About</NavItem>
+        <NavItem active={router.pathname.startsWith(Path.news)} href={Path.news}>News</NavItem>
       </NavMenu>
     </header>
   );
