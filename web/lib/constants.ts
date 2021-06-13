@@ -4,6 +4,7 @@ export enum Path {
   sailboats = '/sailboats',
   sellers = '/sellers',
   about = '/about',
+  contact = '/contact',
 }
 
 export enum BoatOrder {
