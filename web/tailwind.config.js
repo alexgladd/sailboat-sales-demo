@@ -9,6 +9,9 @@ module.exports = {
         'featured': 'opacity, transform',
         'button': 'box-shadow, transform'
       },
+      gridTemplateColumns: {
+        'leftright': 'auto minmax(0, 1fr)',
+      },
     },
   },
   variants: {
