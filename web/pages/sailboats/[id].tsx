@@ -10,12 +10,10 @@ import Button from '../../components/Button';
 import { Mail } from '../../components/Icons';
 import { Path } from '../../lib/constants';
 import { LeftRight, LeftRightItem } from '../../components/LeftRight';
+import { H2 } from '../../components/Headings';
+import Gallery from '../../components/Gallery';
 
-const H2: React.FC<{ children: React.ReactNode; className?: string; }> = ({ children, className = ''}) => (
-  <h2 className={`mb-2 text-2xl lg:text-3xl text-yellow-900 font-bold tracking-wide ${className}`}>
-    { children }
-  </h2>
-)
+
 
 type SailboatDetailsProps = {
   boat: SailboatDocument;
@@ -32,7 +30,7 @@ export default function SailboatDetails({ boat }: SailboatDetailsProps) {
             <SanityImage src={boat.photos[0]} priority layout="fill" objectFit="cover" />
           </div>
         </section>
-        <header className="-mx-2 sm:-mx-4 p-2 sm:p-4 sticky top-14 lg:top-16 inset-x-0 bg-yellow-50 border-yellow-200 border-b-2">
+        <header className="-mx-2 sm:-mx-4 p-2 sm:p-4 sticky top-14 lg:top-16 inset-x-0 bg-yellow-50 border-yellow-200 border-b-2 z-40">
           <div className="container mx-auto flex flex-col sm:flex-row items-center sm:items-baseline space-y-1 sm:space-y-0 sm:space-x-4 md:space-x-6 lg:space-x-8">
             <h1 className="text-4xl xl:text-5xl text-yellow-900 font-bold italic tracking-wide">
               {boat.name}
@@ -71,7 +69,7 @@ export default function SailboatDetails({ boat }: SailboatDetailsProps) {
             </div>
           </aside>
           <article className="p-2 sm:p-4 rounded bg-yellow-50 md:col-span-2">
-            <H2>Photos</H2>
+            <Gallery heading="Photos" photos={boat.photos} />
           </article>
         </section>
       </main>

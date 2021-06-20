@@ -1,7 +1,7 @@
 import React from 'react'
 import Image, { ImageLoader, ImageProps } from 'next/image'
 import { urlFor } from '../lib/sanity'
-import { SanityImageHotspot, SanityImageCrop, SanityImageObject } from '@sanity/image-url/lib/types/types';
+import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 
 const sanityLoader: ImageLoader = ({src, width, quality}) => {
   const sanitySrc = JSON.parse(src);
@@ -21,6 +21,7 @@ type SanityImageProps = {
   objectFit?: ImageProps['objectFit'];
   objectPosition?: ImageProps['objectPosition'];
   sizes?: ImageProps['sizes'];
+  className?: ImageProps['className'];
 } & (
   | {
     layout: 'fill';
