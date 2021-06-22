@@ -10,6 +10,7 @@ export type SailboatDocument = SanityDocument & {
   year: number;
   askingPrice: number;
   photos: SanityImageObject[];
+  description: object;
   specs: {
     loa: number;
     lwl?: number;

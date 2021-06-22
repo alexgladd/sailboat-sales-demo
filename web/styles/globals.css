@@ -2,3 +2,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .block-content {
+    @apply text-base;
+    
+    p {
+      @apply mb-4;
+    }
+  }
+
+  @variants responsive {
+    .block-content-lg {
+      @apply text-lg;
+    }
+  }
+}

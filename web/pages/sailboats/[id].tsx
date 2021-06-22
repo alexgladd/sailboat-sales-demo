@@ -1,6 +1,7 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { sortBy } from 'lodash';
+import BlockContent from '@sanity/block-content-to-react';
 import Layout from '../../components/Layout';
 import { SailboatDocument } from '../../lib/types';
 import { sanityClient } from '../../lib/sanity.server';
@@ -25,7 +26,7 @@ export default function SailboatDetails({ boat }: SailboatDetailsProps) {
   return (
     <Layout pageTitle={`For sale: ${boat.year} ${boat.make} ${boat.model}`}>
       <main>
-        <section className="-mx-2 sm:-mx-4">
+        <section id="hero" className="-mx-2 sm:-mx-4">
           <div className="relative h-72 sm:h-96 xl:h-[30rem] overflow-hidden bg-gray-50">
             <SanityImage src={boat.photos[0]} priority layout="fill" objectFit="cover" />
           </div>
@@ -48,7 +49,7 @@ export default function SailboatDetails({ boat }: SailboatDetailsProps) {
           </div>
         </header>
         <section className="container m-auto py-2 sm:py-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <aside className="p-2 sm:p-4 rounded bg-yellow-50 space-y-6">
+          <aside className="p-2 sm:p-4 rounded bg-yellow-50 space-y-6 text-base lg:text-lg">
             <div>
               <H2>Specifications</H2>
               <LeftRight>
@@ -68,8 +69,15 @@ export default function SailboatDetails({ boat }: SailboatDetailsProps) {
               </LeftRight>
             </div>
           </aside>
-          <article className="p-2 sm:p-4 rounded bg-yellow-50 md:col-span-2">
-            <Gallery heading="Photos" photos={boat.photos} />
+          <article className="p-2 sm:p-4 rounded bg-yellow-50 md:col-span-2 space-y-8">
+            <section id="gallery">
+              <H2>Photos</H2>
+              <Gallery photos={boat.photos} />
+            </section>
+            <section id="description" className="block-content lg:block-content-lg">
+              <H2>Description</H2>
+              <BlockContent blocks={boat.description} />
+            </section>
           </article>
         </section>
       </main>

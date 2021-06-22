@@ -25,11 +25,9 @@ type GalleryProps = {
 
 export default function Gallery({ heading = 'Photos', photos }: GalleryProps) {
   const [fullImg, setFullImg] = useState<SanityImageObject | null>(null);
-  
-  return (
-    <section id="gallery">
-      <H2>{ heading }</H2>
 
+  return (
+    <>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-4">
         {photos.map(p => (
           <div
@@ -41,6 +39,6 @@ export default function Gallery({ heading = 'Photos', photos }: GalleryProps) {
       </div>
 
       {fullImg && <FullImage img={fullImg} onClose={() => setFullImg(null)} />}
-    </section>
+    </>
   );
 }
