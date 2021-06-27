@@ -19,8 +19,18 @@ export type SailboatDocument = SanityDocument & {
     displacement?: number;
   };
   rigging: {
-    rigType: string;
-    sails: SailType[];
-    condition: string;
-  }
+    rigType?: string;
+    sails?: SailType[];
+    condition?: string;
+  };
+  engine: {
+    included: boolean;
+    make?: string;
+    model?: string;
+    year?: number;
+    horsepower?: number;
+    hours?: number;
+    type?: 'inboard' | 'outboard';
+    fuel?: 'diesel' | 'gasoline';
+  };
 }

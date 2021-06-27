@@ -68,6 +68,21 @@ export default function SailboatDetails({ boat }: SailboatDetailsProps) {
                 <LeftRightItem left="Sail notes:" right={boat.rigging.condition} />
               </LeftRight>
             </div>
+            <div>
+              <H2>Engine</H2>
+              {boat.engine?.included ?
+              <LeftRight>
+                {(boat.engine.make || boat.engine.model) && <LeftRightItem left="Make/model:" right={`${boat.engine.make ? boat.engine.make : ''} ${boat.engine.model ? boat.engine.model : ''}`.trim()}/>}
+                {boat.engine.year && <LeftRightItem left="Year:" right={boat.engine.year.toString()}/>}
+                {boat.engine.horsepower && <LeftRightItem left="HP:" right={boat.engine.horsepower.toLocaleString('en-US')}/>}
+                {boat.engine.hours && <LeftRightItem left="Hours:" right={boat.engine.hours.toLocaleString('en-US')}/>}
+                {boat.engine.type && <LeftRightItem left="Type:" right={boat.engine.type.charAt(0).toUpperCase() + boat.engine.type.slice(1)}/>}
+                {boat.engine.fuel && <LeftRightItem left="Fuel:" right={boat.engine.fuel.charAt(0).toUpperCase() + boat.engine.fuel.slice(1)}/>}
+              </LeftRight>
+              :
+              <p className="font-bold">None</p>
+              }
+            </div>
           </aside>
           <article className="p-2 sm:p-4 rounded bg-yellow-50 md:col-span-2 space-y-8">
             <section id="gallery">
