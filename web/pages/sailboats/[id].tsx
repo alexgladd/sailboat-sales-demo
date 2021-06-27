@@ -54,8 +54,8 @@ export default function SailboatDetails({ boat }: SailboatDetailsProps) {
               <H2>Specifications</H2>
               <LeftRight>
                 <LeftRightItem left="LOA:" right={`${boat.specs.loa.toLocaleString('en-US')} ft`} />
-                {boat.specs.lwl && <LeftRightItem left="LOA:" right={`${boat.specs.lwl.toLocaleString('en-US')} ft`}/>}
-                {boat.specs.beam && <LeftRightItem left="LWL:" right={`${boat.specs.beam.toLocaleString('en-US')} ft`}/>}
+                {boat.specs.lwl && <LeftRightItem left="LWL:" right={`${boat.specs.lwl.toLocaleString('en-US')} ft`}/>}
+                {boat.specs.beam && <LeftRightItem left="Beam:" right={`${boat.specs.beam.toLocaleString('en-US')} ft`}/>}
                 {boat.specs.draft && <LeftRightItem left="Draft:" right={`${boat.specs.draft.toLocaleString('en-US')} ft`}/>}
                 {boat.specs.displacement && <LeftRightItem left="Displacement:" right={`${boat.specs.displacement.toLocaleString('en-US')} lbs`}/>}
               </LeftRight>

@@ -10,11 +10,39 @@
     p {
       @apply mb-4;
     }
+
+    h3 {
+      @apply mb-2 text-xl font-bold italic text-yellow-900 tracking-wide;
+    }
+
+    ul, ol {
+      @apply mb-4 ml-2 list-inside;
+    }
+
+    ul {
+      @apply list-disc;
+    }
+
+    ol {
+      @apply list-decimal;
+    }
+
+    a {
+      @apply font-medium text-yellow-800;
+
+      &:hover {
+        @apply underline;
+      }
+    }
   }
 
   @variants responsive {
     .block-content-lg {
       @apply text-lg;
+
+      h3 {
+        @apply text-2xl;
+      }
     }
   }
 }
