@@ -9,6 +9,7 @@ import simpleBlockContent from './objects/simpleBlockContent'
 import galleryPhoto from './objects/galleryPhoto'
 import boatSpecs from './objects/boatSpecs'
 import boatRigging from './objects/boatRigging'
+import boatEngine from './objects/boatEngine'
 
 // documents
 import newsItem from './documents/newsItem'
@@ -25,6 +26,7 @@ export default createSchema({
     galleryPhoto,
     boatSpecs,
     boatRigging,
+    boatEngine,
     newsItem,
     sailboat,
   ]),

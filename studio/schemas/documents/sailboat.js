@@ -112,6 +112,12 @@ export default {
       type: 'boatRigging',
       description: 'Tell potential buyers about the rig',
     },
+    {
+      title: 'Engine',
+      name: 'engine',
+      type: 'boatEngine',
+      description: 'Buyers want to know engine details!',
+    },
   ],
   preview: {
     select: {
