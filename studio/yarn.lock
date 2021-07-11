@@ -7411,6 +7411,10 @@ slate@^0.58.4:
     is-plain-object "^3.0.0"
     tiny-warning "^1.0.3"
 
+slug@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.npmjs.org/slug/-/slug-5.1.0.tgz#8a7e30ca1c3a6dc40cf74e269750913a865edb0b"
+
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/snapdragon-node/-/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"

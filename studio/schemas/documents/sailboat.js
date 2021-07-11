@@ -1,3 +1,15 @@
+const slug = require('slug');
+slug.defaults.mode = 'rfc3986';
+
+function sailboatSlugSource(doc) {
+  const idPart = doc._id.replace('drafts.', '').split('-')[0];
+  return `${doc.year}-${doc.make}-${doc.model}-${idPart}`;
+}
+
+function sailboatSlugify(input) {
+  return slug(input);
+}
+
 export default {
   title: 'Sailboat',
   name: 'sailboat',
@@ -60,6 +72,17 @@ export default {
       description: 'Shown to prospective buyers, in dollars',
       validation: Rule => Rule.required().min(1).integer().error('Asking price must be an integer greater than zero'),
       fieldset: 'basicData',
+    },
+    {
+      title: 'Slug',
+      name: 'slug',
+      type: 'slug',
+      description: 'Click generate to create a unique URL path',
+      validation: Rule => Rule.required(),
+      options: {
+        source: sailboatSlugSource,
+        slugify: sailboatSlugify,
+      },
     },
     {
       title: 'Featured',
