@@ -10,6 +10,8 @@ import galleryPhoto from './objects/galleryPhoto'
 import boatSpecs from './objects/boatSpecs'
 import boatRigging from './objects/boatRigging'
 import boatEngine from './objects/boatEngine'
+import boatPower from './objects/boatPower'
+import boatNavigation from './objects/boatNavigation'
 
 // documents
 import newsItem from './documents/newsItem'
@@ -27,6 +29,8 @@ export default createSchema({
     boatSpecs,
     boatRigging,
     boatEngine,
+    boatPower,
+    boatNavigation,
     newsItem,
     sailboat,
   ]),

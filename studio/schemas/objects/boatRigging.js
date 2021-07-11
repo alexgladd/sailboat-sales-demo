@@ -50,5 +50,16 @@ export default {
       description: 'Comment on the condition of sails and lines',
       rows: 5,
     },
+    {
+      title: 'Other Gear',
+      name: 'other',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'E.g., whisker pole, spinnaker gear, etc.',
+      options: {
+        sortable: false,
+        layout: 'tags',
+      }
+    },
   ],
 }

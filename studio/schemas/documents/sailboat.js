@@ -58,7 +58,7 @@ export default {
       name: 'askingPrice',
       type: 'number',
       description: 'Shown to prospective buyers, in dollars',
-      validation: Rule => Rule.required().min(0).integer().error('Asking price must be an integer greater than zero'),
+      validation: Rule => Rule.required().min(1).integer().error('Asking price must be an integer greater than zero'),
       fieldset: 'basicData',
     },
     {
@@ -117,6 +117,18 @@ export default {
       name: 'engine',
       type: 'boatEngine',
       description: 'Buyers want to know engine details!',
+    },
+    {
+      title: 'Navigation',
+      name: 'navigation',
+      type: 'boatNavigation',
+      description: 'Tell buyers about steering and instruments',
+    },
+    {
+      title: 'Power',
+      name: 'power',
+      type: 'boatPower',
+      description: 'Tell buyers about batteries and power',
     },
   ],
   preview: {
